@@ -1,0 +1,8 @@
+#!/usr/bin/with-contenv bash
+
+umask 0002
+
+chown -R bytesized:bytesized /app /config
+
+echo "Starting Cardigann"
+CONFIG_DIR=/config/ TERM=xterm exec s6-setuidgid bytesized /app/cardigann server
